@@ -102,5 +102,5 @@ Run all the cells sequentially to execute the project.
 
 ## Authors
 
-Simran Kharbanda (UID: 122283671)
-Shashank Ashoka (UID: 122241329)
+- Simran Kharbanda (UID: 122283671)
+- Shashank Ashoka (UID: 122241329)
