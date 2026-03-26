@@ -173,7 +173,7 @@ Note: The network address will only work for users connected to the same local n
 
 A short video demonstration of the project explains the hashing implementation and shows how the Streamlit interface retrieves songs by artist.
 
-Video File: `video.mp4`
+Video Link: [`video.mp4`](https://drive.google.com/file/d/13SfeH31eCq4tB6mdvwpI6G8PsCyJSwVo/view)
 
 ---
 
