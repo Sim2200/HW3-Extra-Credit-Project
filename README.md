@@ -200,7 +200,7 @@ This allows users to explore relationships between songs and albums.
 
 ### Album View
 
-![Album View](images/ui_albumjpeg)
+![Album View](images/ui_album.jpeg)
 
 The album page shows:
 
