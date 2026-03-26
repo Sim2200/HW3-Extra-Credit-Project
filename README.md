@@ -4,8 +4,6 @@
 
 AI tools(Chatgpt, Claude) were used only for assistance in designing the user interface (UI) of the project. The hashing logic, algorithm implementation, and data preprocessing were developed by the members of the group.
 
----
-
 ## Project Overview
 This project analyzes a Spotify music dataset and organizes songs using hashing.  
 The main goal is to efficiently group songs by artist and allow quick retrieval of songs associated with a specific artist.
@@ -16,13 +14,39 @@ The dataset used in this project contains more than 10,000 songs along with meta
 
 ---
 
+## Dataset
+
+The dataset used in this project is too large to upload directly to GitHub.  
+You can download it from Kaggle using the link below:
+
+https://www.kaggle.com/datasets/rodolfofigueroa/spotify-12m-songs
+
+After downloading the dataset:
+
+1. Extract the files.
+2. Place the dataset file in the project folder before running the notebook.
+
+Example folder structure after downloading the dataset:
+
+```
+project-folder/
+│
+├── Project.ipynb
+├── README.md
+├── hashing_report.pdf
+└── dataset.csv   (downloaded from Kaggle)
+```
+
+Note: The dataset file is not included in this repository because it exceeds GitHub’s file size limits.
+
+---
+
 ## Project Structure
 
 ```
 project-folder/
 │
 ├── Project.ipynb        # Main project notebook
-├── dataset.csv          # Spotify dataset
 ├── README.md            # Instructions for running the project
 ├── hashing_report.pdf   # Explanation of hashing implementation
 └── ui_code.py           # User interface code
@@ -40,7 +64,7 @@ Before running the project, make sure the following are installed:
 - scikit-learn
 - matplotlib
 
-You can install the required libraries using:
+Install the required libraries using:
 
 ```
 pip install pandas numpy scikit-learn matplotlib
@@ -68,7 +92,11 @@ cd project-folder
 pip install pandas numpy scikit-learn matplotlib
 ```
 
-### Step 4: Open the notebook
+### Step 4: Download the dataset
+
+Download the dataset from Kaggle and place the dataset file in the project folder.
+
+### Step 5: Open the notebook
 
 Run the following command:
 
@@ -88,7 +116,7 @@ Run all the cells sequentially to execute the project.
 
 ## How the Program Works
 
-1. The dataset is first loaded into the program.
+1. The dataset is loaded into the program.
 2. Artist names are cleaned and normalized to avoid duplicates caused by formatting differences.
 3. A hash table (Python dictionary) is created where the artist name is used as the key.
 4. Each artist key stores songs associated with that artist.
