@@ -1,16 +1,13 @@
 # Spotify Artist Hashing Project
 
-## AI Usage
-
-AI tools(Chatgpt, Claude) were used only for assistance in designing the user interface (UI) of the project. The hashing logic, algorithm implementation, and data preprocessing were developed by the members of the group.
-
 ## Project Overview
+
 This project analyzes a Spotify music dataset and organizes songs using hashing.  
 The main goal is to efficiently group songs by artist and allow quick retrieval of songs associated with a specific artist.
 
 Hashing is implemented using Python dictionaries where the artist name acts as the key and the related song information is stored as the value.
 
-The dataset used in this project contains more than 10,000 songs along with metadata such as track names, artist names, and artist IDs.
+The dataset used in this project contains metadata such as track names, artist names, album information, and Spotify artist IDs.
 
 ---
 
@@ -23,8 +20,8 @@ https://www.kaggle.com/datasets/rodolfofigueroa/spotify-12m-songs
 
 After downloading the dataset:
 
-1. Extract the files.
-2. Place the dataset file in the project folder before running the notebook.
+1. Extract the files
+2. Place the dataset file inside the project folder before running the notebook
 
 Example folder structure after downloading the dataset:
 
@@ -37,13 +34,13 @@ project-folder/
 └── dataset.csv   (downloaded from Kaggle)
 ```
 
-Note: The dataset file is not included in this repository because it exceeds GitHub’s file size limits.
+Note: The dataset file is not included in this repository because it exceeds GitHub's file size limits.
 
 ---
 
-### Dataset Description
+## Dataset Description
 
-The dataset used in this project is the **Spotify 1.2M+ Songs dataset** available on Kaggle. It contains audio features and metadata for over **1.2 million tracks** collected using the Spotify API. Each row represents a single track, while each column represents a feature or metadata field related to that track.
+The dataset used in this project is the **Spotify 1.2M+ Songs dataset** available on Kaggle. It contains audio features and metadata for over **1.2 million tracks** collected using the Spotify API. Each row represents a single track and each column represents a feature or metadata field related to that track.
 
 Some of the key fields in the dataset include:
 
@@ -58,20 +55,20 @@ Some of the key fields in the dataset include:
 - **explicit** – Whether the track contains explicit content  
 - **danceability** – A numeric score indicating how suitable a track is for dancing
 
-The dataset contains over **1.2 million songs**, making it suitable for testing algorithms on large, real-world music data. For this project, we use the artist and track metadata to build hash-based indexing structures that allow efficient retrieval of songs by artist. :contentReference[oaicite:0]{index=0}
+The dataset contains over **1.2 million songs**, making it useful for testing algorithms on large real-world music data. In this project, the artist and track metadata are used to build hash-based indexing structures that allow efficient retrieval of songs by artist.
 
 ---
-
 
 ## Project Structure
 
 ```
 project-folder/
 │
-├── Project.ipynb        # Main project notebook
-├── README.md            # Instructions for running the project
-├── hashing_report.pdf   # Explanation of hashing implementation
-└── ui_code.py           # User interface code
+├── Project.ipynb                 # Main project notebook
+├── spotify_streamlit_ui.py       # Streamlit user interface
+├── hashing_report.pdf            # Explanation of hashing implementation
+├── README.md                     # Project documentation
+└── images/                       # UI screenshots (optional)
 ```
 
 ---
@@ -85,11 +82,12 @@ Before running the project, make sure the following are installed:
 - numpy
 - scikit-learn
 - matplotlib
+- streamlit
 
 Install the required libraries using:
 
 ```
-pip install pandas numpy scikit-learn matplotlib
+pip install pandas numpy scikit-learn matplotlib streamlit
 ```
 
 ---
@@ -111,7 +109,7 @@ cd project-folder
 ### Step 3: Install required libraries
 
 ```
-pip install pandas numpy scikit-learn matplotlib
+pip install pandas numpy scikit-learn matplotlib streamlit
 ```
 
 ### Step 4: Download the dataset
@@ -126,19 +124,19 @@ Run the following command:
 jupyter notebook
 ```
 
-Then open the file:
+Then open:
 
 ```
 Project.ipynb
 ```
 
-Run all the cells sequentially to execute the project.
+Run all cells sequentially to execute the project.
 
 ---
 
 ## User Interface (UI)
 
-This project includes a Streamlit-based user interface that allows users to interact with the system and search for artists and songs.
+This project includes a **Streamlit-based user interface** that allows users to interact with the system and search for artists and songs.
 
 ### Running the UI
 
@@ -160,7 +158,16 @@ If the UI server is already running on the network, it may also be accessible at
 http://192.168.1.165:8501/
 ```
 
-Note: The local network address will only work for users connected to the same network.
+Note: The network address will only work for users connected to the same local network.
+
+---
+
+## Video Demonstration
+
+A short video demonstration of the project explains the hashing implementation and shows how the Streamlit interface retrieves songs by artist.
+
+Video Link:  
+*(Add your video link here)*
 
 ---
 
@@ -178,7 +185,14 @@ Note: The local network address will only work for users connected to the same n
 
 ---
 
+## AI Usage
+
+AI tools (ChatGPT, Claude) were used only for assistance in designing the **user interface (UI)** of the project.  
+The hashing logic, algorithm implementation, and data preprocessing were developed by the members of the group.
+
+---
+
 ## Authors (Group 4)
 
-- Simran Kharbanda (UID: 122283671)
+- Simran Kharbanda (UID: 122283671)  
 - Shashank Ashoka (UID: 122241329)
