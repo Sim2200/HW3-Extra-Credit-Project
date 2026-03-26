@@ -114,6 +114,18 @@ Run all the cells sequentially to execute the project.
 
 ---
 
+## User Interface (UI)
+
+This project also includes a simple user interface for interacting with the system.
+
+If the UI server is running, it can be accessed at:
+
+http://192.168.1.165:8501/
+
+Note: This address works only within the same local network where the UI is hosted.
+
+---
+
 ## How the Program Works
 
 1. The dataset is loaded into the program.
