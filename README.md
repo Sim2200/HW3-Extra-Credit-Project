@@ -116,13 +116,29 @@ Run all the cells sequentially to execute the project.
 
 ## User Interface (UI)
 
-This project also includes a simple user interface for interacting with the system.
+This project includes a Streamlit-based user interface that allows users to interact with the system and search for artists and songs.
 
-If the UI server is running, it can be accessed at:
+### Running the UI
 
+To launch the interface, run the following command in the terminal:
+
+```
+streamlit run spotify_streamlit_ui.py
+```
+
+After running the command, open the link shown in the terminal (usually):
+
+```
+http://localhost:8501
+```
+
+If the UI server is already running on the network, it may also be accessible at:
+
+```
 http://192.168.1.165:8501/
+```
 
-Note: This address works only within the same local network where the UI is hosted.
+Note: The local network address will only work for users connected to the same network.
 
 ---
 
