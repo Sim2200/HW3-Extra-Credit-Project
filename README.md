@@ -76,6 +76,11 @@ project-folder/
 ├── hashing_report.pdf            # Explanation of hashing implementation
 ├── video.mp4                     # Project demonstration video
 └── README.md                     # Project documentation
+└── images/                       # UI screenshots used in README
+    ├── ui_home.png
+    ├── ui_song_search.png
+    ├── ui_album_page.png
+    └── ui_artist_page.png
 ```
 
 ---
