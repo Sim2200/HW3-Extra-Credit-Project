@@ -156,7 +156,7 @@ Note: The local network address will only work for users connected to the same n
 
 ---
 
-## Authors
+## Authors (Group 4)
 
 - Simran Kharbanda (UID: 122283671)
 - Shashank Ashoka (UID: 122241329)
