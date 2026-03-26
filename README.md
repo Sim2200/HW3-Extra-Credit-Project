@@ -41,6 +41,27 @@ Note: The dataset file is not included in this repository because it exceeds Git
 
 ---
 
+### Dataset Description
+
+The dataset used in this project is the **Spotify 1.2M+ Songs dataset** available on Kaggle. It contains audio features and metadata for over **1.2 million tracks** collected using the Spotify API. Each row represents a single track, while each column represents a feature or metadata field related to that track.
+
+Some of the key fields in the dataset include:
+
+- **id** – Spotify track ID  
+- **name** – Track title  
+- **album** – Album name  
+- **album_id** – Spotify album ID  
+- **artists** – List of artist names associated with the track  
+- **artist_ids** – List of Spotify artist IDs  
+- **track_number** – Track position in the album  
+- **disc_number** – Disc number in the album  
+- **explicit** – Whether the track contains explicit content  
+- **danceability** – A numeric score indicating how suitable a track is for dancing
+
+The dataset contains over **1.2 million songs**, making it suitable for testing algorithms on large, real-world music data. For this project, we use the artist and track metadata to build hash-based indexing structures that allow efficient retrieval of songs by artist. :contentReference[oaicite:0]{index=0}
+---
+
+
 ## Project Structure
 
 ```
