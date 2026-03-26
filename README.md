@@ -77,10 +77,10 @@ project-folder/
 ├── video.mp4                     # Project demonstration video
 └── README.md                     # Project documentation
 └── images/                       # UI screenshots used in README
-    ├── ui_home.png
-    ├── ui_song_search.png
-    ├── ui_album_page.png
-    └── ui_artist_page.png
+    ├── ui_home.jpg
+    ├── ui_song.jpeg
+    ├── ui_album.jpeg
+    └── ui_artist.jpeg
 ```
 
 ---
