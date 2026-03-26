@@ -169,6 +169,64 @@ Note: The network address will only work for users connected to the same local n
 
 ---
 
+## User Interface Preview
+
+Below are some screenshots of the Streamlit interface used to interact with the hashing-based search system.
+
+### Main Search Interface
+
+![Search Interface](images/ui_home.jpeg)
+
+This is the main interface where users can enter an **artist, song, or album name**.  
+The system then identifies the type of query and retrieves the relevant data using the hash table.
+
+---
+
+### Song Search Example
+
+![Song Search](images/ui_song.jpeg)
+
+When a song is searched, the system displays:
+
+- Song information  
+- Album name  
+- Release year  
+- Artist(s)  
+- Other songs from the same album
+
+This allows users to explore relationships between songs and albums.
+
+---
+
+### Album View
+
+![Album View](images/ui_albumjpeg)
+
+The album page shows:
+
+- Album artwork  
+- Album title  
+- Artists associated with the album  
+- Number of songs in the album  
+- All songs that belong to that album
+
+---
+
+### Artist View
+
+![Artist View](images/ui_artist.jpeg)
+
+The artist search shows:
+
+- Artist profile  
+- Total number of albums and songs  
+- Albums created by the artist  
+- Songs grouped by category (solo, main artist, or featured)
+
+This information is retrieved efficiently using the hashing structure built during preprocessing.
+
+---
+
 ## Video Demonstration
 
 A short video demonstration of the project explains the hashing implementation and shows how the Streamlit interface retrieves songs by artist.
