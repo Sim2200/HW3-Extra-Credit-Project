@@ -175,7 +175,7 @@ Below are some screenshots of the Streamlit interface used to interact with the 
 
 ### Main Search Interface
 
-![Search Interface](images/ui_home.jpeg)
+![Search Interface](images/ui_home.jpg)
 
 This is the main interface where users can enter an **artist, song, or album name**.  
 The system then identifies the type of query and retrieves the relevant data using the hash table.
