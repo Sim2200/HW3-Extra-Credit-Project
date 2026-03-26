@@ -17,8 +17,8 @@ from sklearn.preprocessing import StandardScaler
 st.set_page_config(page_title="Spotify Explorer", page_icon="🎵", layout="wide")
 
 CSV_PATH = "processed_spotify_data.csv"  # change if needed
-CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID", "d941bc8a2cbb466a8356fa1440c9e16e")
-CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET", "021d375ad4f7499ab92b155d476effe7")
+CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID", "fcc0a4cf00044bf2a7b1bb28e79f5883")
+CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET", "d76a5d47a16e44ea9d4a9dbd63d4ee4f")
 
 FEATURE_COLS = [
     "danceability", "energy", "loudness", "speechiness",
@@ -276,7 +276,13 @@ def build_indexes(df):
         song_names.add(song)
 
         for i, artist in enumerate(artists):
-            current_artist_id = artist_ids[i] if i < len(artist_ids) else None
+            raw_id = artist_ids[i] if i < len(artist_ids) else None
+            # Only store if it looks like a real Spotify ID (22 chars, alphanumeric)
+            current_artist_id = None
+            if raw_id and str(raw_id).strip() not in ("", "nan", "None"):
+                cleaned = str(raw_id).strip()
+                if len(cleaned) >= 10:
+                    current_artist_id = cleaned
             if current_artist_id and artist not in artist_to_id:
                 artist_to_id[artist] = current_artist_id
 
@@ -383,9 +389,39 @@ def fetch_album_image(album_id, token):
 
 
 def fetch_artist_image(artist_id, token):
+    """Try fetching by stored ID first; fall back to name search if needed."""
+    if not token:
+        return None
     try:
-        info = spotify_fetch_by_id(artist_id, fetch_type="artist", token=token)
-        return info
+        if artist_id and str(artist_id).strip() not in ("", "nan", "None"):
+            info = spotify_fetch_by_id(artist_id.strip(), fetch_type="artist", token=token)
+            if info and info.get("image"):
+                return info
+    except Exception:
+        pass
+    return None
+
+
+def search_artist_on_spotify(artist_name, token):
+    """Search Spotify by artist name and return info dict."""
+    if not token or not artist_name:
+        return None
+    try:
+        url = "https://api.spotify.com/v1/search"
+        headers = {"Authorization": f"Bearer {token}"}
+        params = {"q": artist_name, "type": "artist", "limit": 1}
+        resp = requests.get(url, headers=headers, params=params, timeout=15)
+        resp.raise_for_status()
+        items = resp.json().get("artists", {}).get("items", [])
+        if not items:
+            return None
+        a = items[0]
+        return {
+            "name":  a.get("name"),
+            "id":    a.get("id"),
+            "image": a["images"][0]["url"] if a.get("images") else None,
+            "spotify_url": a.get("external_urls", {}).get("spotify"),
+        }
     except Exception:
         return None
 
@@ -424,8 +460,11 @@ def render_artist_view(artist_key, indexes, token):
     artist_to_songs = indexes["artist_to_songs"]
     artist_to_albums = indexes["artist_to_albums"]
 
-    artist_id = artist_to_id.get(artist_key)
+    artist_id   = artist_to_id.get(artist_key)
     artist_info = fetch_artist_image(artist_id, token) if artist_id else None
+    # Fall back: search Spotify by name if ID lookup gave no image
+    if (not artist_info or not artist_info.get("image")) and token:
+        artist_info = search_artist_on_spotify(artist_key, token) or artist_info
 
     display_name = safe_title(artist_info["name"] if artist_info else artist_key)
     num_albums = len(artist_to_albums.get(artist_key, []))
@@ -698,7 +737,7 @@ NOT_FOUND_MSGS = {
     "artist": (
         "😔 Sorry, we couldn't find **{query}** in our dataset.\n\n"
         "Our dataset covers artists who were active between **1997 – 2020**. "
-        "Your favourite artist might not be included yet try searching for "
+        "Your favourite artist might not be included yet — try searching for "
         "someone from that era, or check the spelling!"
     ),
     "song": (
